@@ -21,14 +21,18 @@
         </style>
     </head>
     <body class="antialiased">
-
+     @if (session('message'))
+     <div>
+            {{ session('message') }}
+    </div>
+     @endif
       <a href=" {{ route('posts.create') }} "> CADASTRAR NOVO POST </a>
       <hr>
 
 
       @foreach ($posts as $post)
 
-            <p> {{$post->title }} </p>
+            <p> {{$post->title }}  [<a href=" {{ route('posts.show',$post->id) }} "> Detalhes </a>]</p>
 
       @endforeach
 
