@@ -15,7 +15,7 @@ class PostController extends Controller
     public function index()
     {
 
-            $posts = Post::get();
+            $posts = Post::paginate(1);
 
             //dd($posts);
 
@@ -56,6 +56,29 @@ class PostController extends Controller
 
         return redirect()->route('posts.index')->with('message','Post Deletado com sucesso');
 
+
+    }
+
+    public function edit($id){
+
+        if(!$post= Post::find($id)){
+            return redirect()->back();
+        }       
+
+
+        return view('admin.posts.edit', compact('post'));  
+    }
+
+    public function update(PostRequest $request,$id){
+       
+        if(!$post= Post::find($id)){
+            return redirect()->back();
+        }       
+        $dados = $request->all();
+        $post->update($dados);
+        
+
+        return redirect()->route('posts.index')->with('message','Post Atualizado com sucesso');
 
     }
 }
