@@ -30,5 +30,7 @@ Route::post('/posts',[PostController::class,'store'])->name('posts.store');
 Route::get('/clientes',[ClienteController::class,'index'])->name('clientes.index'); 
 Route::get('/clientes/create',[ClienteController::class,'create'])->name('clientes.create'); 
 Route::post('/clientes',[ClienteController::class,'store'])->name('clientes.store'); 
+Route::put('/clientes/{id}',[ClienteController::class,'update'])->name('clientes.update');
+Route::get('/clientes/edit/{id}',[ClienteController::class,'edit'])->name('clientes.edit');
 
 
