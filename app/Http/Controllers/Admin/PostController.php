@@ -15,7 +15,7 @@ class PostController extends Controller
     public function index()
     {
 
-            $posts = Post::paginate(1);
+            $posts = Post::orderBy('title')->paginate();  
 
             //dd($posts);
 
@@ -84,16 +84,7 @@ class PostController extends Controller
 
     public function search(Request $request){
 
-        //dd($request->all());
-
-        $filters = $request->except('_token');
-
-        
-
-        $posts = Post::where('title','LIKE', "%{$request->search}%")
-        ->orWhere('content','LIKE', "%{$request->search}%")->paginate(1);
-
-        return view('admin.posts.index', compact('posts','filters'));
+        dd($request->all());
 
 
     }

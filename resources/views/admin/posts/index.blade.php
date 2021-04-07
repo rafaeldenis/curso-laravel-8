@@ -26,6 +26,14 @@
             {{ session('message') }}
     </div>
      @endif
+     <form action="{{ route('posts.search') }}" method="post">
+     @csrf
+            <input type="text" name="search" placeholder="Filtro">
+
+            <button type="submit">Pesquisar</button>
+     
+     
+     </form>
       <a href=" {{ route('posts.create') }} "> CADASTRAR NOVO POST </a>
       <hr>
 
@@ -44,9 +52,14 @@
       @endforeach
 
       <hr>
+      @if (isset($filters))
 
-      {{ $posts->links() }}
-
+            {{ $posts->appends($filters)->links() }}
+      @else
+            {{ $posts->links() }}
+      @endif
+     
+ 
 
     </body>
 </html>
