@@ -16,17 +16,14 @@ class checkTesteMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-         $perfilNivel = 4;
+        
          
-         //dd($perfilNivel);
-        $user = auth()->user();   
+         // verifica o email tem permisão de acessa a rota que esta dentro do middelaware
+         $user = auth()->user();
 
-        // Middleware verifica se o email do usuário autenticado pertence aos email gerenciais
-        if(!in_array($user->email,['rafagdf85@gmail.com,didi@gmail.com'])){
-            return redirect('/');
+         if (!in_array($user->email, ['rafagdf85@gmail.com','didi@gmail.com'])){
+            return redirect('/');  
          }
-
-         
         return $next($request);
     }
 }
