@@ -46,19 +46,11 @@ Route::get('/ola',function(){
 });
 
 Route::get('/login',function(){
-    return 'é necessário login para acessar os posts.... exemplo de middleware';
+    return 'login';
 
 })->name('login');
 
-Route::any('/posts/search',[PostController::class,'search'])->name('posts.search');
-Route::get('/posts',[PostController::class,'index'])->name('posts.index');
-Route::get('/posts/create',[PostController::class,'create'])->name('posts.create');
-Route::put('/posts/{id}',[PostController::class,'update'])->name('posts.update');
-Route::get('/posts/edit/{id}',[PostController::class,'edit'])->name('posts.edit');
-Route::delete('/posts/{id}',[PostController::class,'destroy'])->name('posts.destroy');
-Route::get('/posts/{id}',[PostController::class,'show'])->name('posts.show');
 
-Route::post('/posts',[PostController::class,'store'])->name('posts.store');
 
 Route::get('/clientes',[ClienteController::class,'index'])->name('clientes.index'); 
 Route::get('/clientes/create',[ClienteController::class,'create'])->name('clientes.create'); 
@@ -70,9 +62,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/login', function () {
-    return view('login');
-})->middleware(['checkteste'])->name('login');
+
 
 require __DIR__.'/auth.php';
 

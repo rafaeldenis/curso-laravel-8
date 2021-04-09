@@ -19,12 +19,14 @@ class checkTesteMiddleware
          $perfilNivel = 4;
          
          //dd($perfilNivel);
+        $user = auth()->user();   
 
-         if($perfilNivel==5){
-            return redirect('/posts');
-         }else{
-            return redirect()->route('login');
+        // Middleware verifica se o email do usuário autenticado pertence aos email gerenciais
+        if(!in_array($user->email,['rafagdf85@gmail.com,didi@gmail.com'])){
+            return redirect('/');
          }
+
+         
         return $next($request);
     }
 }
