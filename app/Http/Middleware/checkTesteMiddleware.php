@@ -16,7 +16,7 @@ class checkTesteMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-         $perfilNivel = 5;
+         $perfilNivel = 4;
          
          //dd($perfilNivel);
 
