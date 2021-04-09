@@ -65,6 +65,11 @@ Route::post('/clientes',[ClienteController::class,'store'])->name('clientes.stor
 Route::put('/clientes/{id}',[ClienteController::class,'update'])->name('clientes.update');
 Route::get('/clientes/edit/{id}',[ClienteController::class,'edit'])->name('clientes.edit');
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
 
 
    

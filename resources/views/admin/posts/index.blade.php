@@ -19,18 +19,47 @@
       <hr>
 
 
-      @foreach ($posts as $post)
 
-            <p> {{$post->title }} 
-            
-             [<a href=" {{ route('posts.show',$post->id) }} "> Detalhes </a> |
-             <a href=" {{ route('posts.edit',$post->id) }} "> Editar </a>
-             
-             ]
-             
-            </p>
+      <div class="table-responsive">
+        <table class="table table-striped tabela-unifesp">        
+            <thead>
+            <tr>      
+                <th>Título</th>                
+                <th>Opções</th>
+            </tr>
+            </thead>           
+            <tbody>
+                    @forelse($posts as $post)
+                <tr>
+                    <td>{{ $post->title }}</td>
+                   
+          
+                    <td>
+                        <div class='d-flex'>     
+                            <a href="{{ route('posts.show',$post->id) }}"
+                                class="btn" role="button" title="Detalhes" data-toggle="tooltip" data-placement="top">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a href="{{ route('posts.edit',$post->id) }}"
+                                class="btn" role="button" title="Detalhes" data-toggle="tooltip" data-placement="top">
+                                <i class="fas fa-edit"></i>
+                            </a>
 
-      @endforeach
+                         
+
+                           
+                        </div>   
+                    </td>
+                </tr>
+                @empty
+               
+                  
+            @endforelse
+            </tbody>
+        </table>
+    </div>
+
+     
 
       <hr>
       @if (isset($filters))

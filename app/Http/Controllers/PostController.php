@@ -15,7 +15,7 @@ class PostController extends Controller
     public function index()
     {
 
-            $posts = Post::paginate(1);
+            $posts = Post::paginate();
 
             //dd($posts);
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ClienteRequest;
 use App\Models\Cliente as ModelsCliente;
 use App\Models\Models\Cliente;
 use Illuminate\Http\Request;
@@ -24,7 +25,7 @@ class ClienteController extends Controller
         return view('admin.clientes.create');
     }
 
-    public function store(Request $request){
+    public function store(ClienteRequest $request){
 
         //$cliente =  ModelsCliente::get();
         
