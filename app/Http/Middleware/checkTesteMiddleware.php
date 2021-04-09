@@ -23,7 +23,7 @@ class checkTesteMiddleware
          if($perfilNivel==5){
             return redirect('/posts');
          }else{
-            return redirect('/clientes');  
+            return redirect()->route('login');
          }
         return $next($request);
     }

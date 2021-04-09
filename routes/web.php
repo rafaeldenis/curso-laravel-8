@@ -18,9 +18,10 @@ use Symfony\Component\CssSelector\Node\FunctionNode;
 
 
 // Exemplo de Controlar grupos e middleware
-Route::group(['namespace' => 'Admin', 
-            'prefix' => 'admin',
-            'middleware' => 'auth'],
+
+Route::group(['middleware' => ['auth','check.teste'],
+             'namespace' => 'Admin', 
+            'prefix' => 'admin'],
              function() {
                 Route::any('/posts/search',[PostController::class,'search'])->name('posts.search');
                 Route::get('/posts',[PostController::class,'index'])->name('posts.index');
@@ -68,6 +69,10 @@ Route::get('/clientes/edit/{id}',[ClienteController::class,'edit'])->name('clien
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('/login', function () {
+    return view('login');
+})->middleware(['checkteste'])->name('login');
 
 require __DIR__.'/auth.php';
 
