@@ -31,7 +31,7 @@
             </a>
         </div>
 </div>
-      <h1 class="text-center text-3x1 uppercase font-black my-4">LISTAGEM POSTS</h1>
+      <h3 class="text-center text-3x1 uppercase font-black my-4">LISTAGEM POSTS</h3>
       <div class="table-responsive">
         <table class="table table-striped">        
             <thead>
