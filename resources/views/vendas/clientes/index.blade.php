@@ -6,7 +6,20 @@
             {{ session('message') }}
     </div>
      @endif
-     <h1 class="text-center text-3x1 uppercase font-black my-4">LISTAGEM CLIENTES</h1>
+    <div class="row">
+        <div class="col-md-11 col-sm-11 d-flex align-items-center">
+            <h3>Lista de Clientes</h3>
+        </div>
+        <div class="col-md-1 col-sm-1 d-flex justify-content-end">
+            <a href="{{ route('clientes.create') }}"
+                class="btn btn-primary btn-sm" role="button" title="Novo cadastro">
+                <i class="far fa-file-alt">
+                    <span class="icon-label"><br>Novo</span>
+                </i>
+            </a>
+        </div>
+    </div>
+     
       <div class="table-responsive">
         <table class="table table-striped">        
             <thead>

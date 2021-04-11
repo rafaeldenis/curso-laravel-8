@@ -10,22 +10,31 @@
 @endif
 
 @csrf
-<div class="form-group">
-            <label for="id">ID</label>
-            <label for="nome" class='class_font_rotulo'>nome</label>
-            <input type="text" name="id" placeholder="26" readonly value="auto" id="id">
-            
-            <input type="text" name="nome" placeholder="John Doe" id="nome" required="S" value="{{ $cliente->nome ?? old('nome') }}" >
-            <div id="div_error_nome" class="class_error"></div>
-             
-    </div>  
-    <div class="form-group">
-        <label for="apelido" class_font_rotulo>Apelido</label>
-        <label for="apelido"></label>
-
-        <input type="text" name="apelido" placeholder="pamonha" id="apelido" value="{{ $cliente->apelido ?? old('apelido') }}">
+<div class="row">    
+    <div class="form-group col-md-7 {{ $errors->has('nome') ? 'has-error': '' }}">     
+        <label for="nome"> Nome </label>
+        <input
+         type="text"
+         name="nome"
+         id="nome"
+         placeholder="nome"
+         value="{{ $cliente->nome ?? old('nome') }}"
+        >
         
     </div>
- 
-   
-    <button type="submit">Enviar</button>
+</div>
+<div class="row">    
+    <div class="form-group col-md-7 {{ $errors->has('apelido') ? 'has-error': '' }}">     
+        <label for="apelido"> Conteúdo </label>
+        <input
+         type="text"
+         name="apelido"
+         id="apelido"
+         placeholder="Apelido"
+         value="{{ $cliente->apelido ?? old('apelido') }}"
+        >
+        
+    </div>
+</div>
+    
+    <button type="submit" class="btn btn-primary"> Enviar </button>
