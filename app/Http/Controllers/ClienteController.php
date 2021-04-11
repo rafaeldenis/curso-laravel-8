@@ -17,12 +17,12 @@ class ClienteController extends Controller
 
         //d($clientes);
 
-       return view('admin.clientes.index',compact('clientes'));
+       return view('vendas.clientes.index',compact('clientes'));
     }
 
     public function create(){
 
-        return view('admin.clientes.create');
+        return view('vendas.clientes.create');
     }
 
     public function store(ClienteRequest $request){
@@ -42,7 +42,7 @@ class ClienteController extends Controller
        if(!$cliente= ModelsCliente::find($id)){
         return redirect()->back();
        }       
-       return view('admin.clientes.edit',compact('cliente'));
+       return view('vendas.clientes.edit',compact('cliente'));
     }
 
     public function update(Request $request,$id){
