@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Cliente;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\OneToManyController;
+use App\Http\Controllers\OneToOneController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\CssSelector\Node\FunctionNode;
@@ -82,6 +84,22 @@ Route::get('/ola',function(){
     echo "OLÁ MUNDO DO LARAVEL 8";
 
 });
+
+
+// Testando relação de  uma para um tabela Countries relacionado com Location com latitude e longitude
+Route::get('/one-to-one',[OneToOneController::class,'oneToOne']);
+Route::get('/one-to-one-inverse',[OneToOneController::class,'oneToOneInverse']);
+Route::get('/one-to-one-insert',[OneToOneController::class,'oneToOneInsert']);
+
+/*
+
+* One To MAny -- um para Muitos relacionamentos rota
+Route::get('/one-to-many-insert',[OneToManyController::class,'oneToMany']);
+*/
+Route::get('/one-to-many',[OneToManyController::class,'oneToMany']);
+
+
+
 
 Route::get('/login',function(){
     return 'login';
