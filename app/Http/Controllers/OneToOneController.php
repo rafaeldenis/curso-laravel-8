@@ -67,7 +67,7 @@ class OneToOneController extends Controller
             $location->country_id = $country->id;
             $saveLocation = $location->save();*/
 
-            return "salvou";
+            return "salvouuu";
 
            
     }
