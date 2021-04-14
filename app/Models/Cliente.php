@@ -19,4 +19,11 @@ class Cliente extends Model
         'apelido'
              
     ];
+
+
+    public function telefones()
+    {
+
+        return $this->hasMany(Telefone::class);
+    }
 }

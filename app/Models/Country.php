@@ -27,5 +27,8 @@ class Country extends Model
         /// relacionamento um para muitos um pais possui muitos estados
 
         return $this->hasMany(State::class);
+        //quando referenciamos o foreing Key para casos que a chave não segue 
+        //o padrão do laravel que é o id
+        //return $this->hasMany(State::class,'country_id','id');
     }
 }
