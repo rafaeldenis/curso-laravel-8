@@ -100,9 +100,24 @@ Route::get('/one-to-many-insert',[OneToManyController::class,'oneToMany']);
 Route::get('/one-to-many',[OneToManyController::class,'oneToMany']);
 Route::get('/one-to-many-two',[OneToManyController::class,'oneToManyTwo']);
 Route::get('/one-to-many-insert',[OneToManyController::class,'oneToManyInsert']);
+Route::get('/one-to-many-insert-two',[OneToManyController::class,'oneToManyInsertTwo']);
 
 
+/* Has many Through -- 
+
+* Has many Through -- Uma  hasManyThrough relação estabelece 
+ uma conexão muitos para muitos com outro modelo.
+  Essa relação indica que o modelo declarante pode ser
+   combinado com zero ou mais instâncias de outro modelo,
+ procedendo-se por meio de um terceiro modelo. Nesse casso vamos recuperar 
+ as cidades de um País  pulando o relacionamento de Estados apenas indicando 
+ o relacionamento na Model de State
+
+*/
+Route::get('/has-many-through',[OneToManyController::class,'hasManyThrough']);
 /*
+
+
 
 * Many To many-- esse  relacionamento é de muitos estados apenas para um país o teste 
 Route::get('/one-to-many-insert',[OneToManyController::class,'oneToMany']);

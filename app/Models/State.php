@@ -9,6 +9,8 @@ class State extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name','initials','country_id'];
+
     public function country()
     {
          // relacionamento incverso muitos para um ... nocaso muitos estados para apenas um País

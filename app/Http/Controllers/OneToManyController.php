@@ -83,6 +83,27 @@ class OneToManyController extends Controller
 
     }
 
+    public function hasManyThrough()
+    {
+        //dd('aqui');
+        //  hasM anyThrough nesse relacionamento pulamos de chamar o método de Estados
+        // fomos direto para uma ligação entre País  e Cidade . Esse tipo de relacionamento já 
+        //resolveu por configuração na model e não precisa informa nos métodos.
+        $country = Country::find(1);
+
+        echo "<b>  $country->name </b> <br>";
+
+        $cities = $country->cities;
+
+        foreach($cities as $citie)
+        {
+
+            echo "$citie->name ,";
+        }
+        
+        
+    }
+
     public function manyToOne(){
 
        // $states = State::find(8);
@@ -101,6 +122,41 @@ class OneToManyController extends Controller
 
     public function oneToManyInsert()
     {
-        dd("aquiiiiiiiii");
+        // SIMULA DADOS QUE VEM DE UM FORM POR EXEMPLO ... 
+        //VAMOS GRAVAR DIRETO PELOS RELACIONAMENTOS SEM NECESSIDADE DE SQL E INSTRUÇÕES DIVERSAS
+        $dataForm = [
+        'name'=>'Alagoas',
+        'initials'=>'AL',
+        'teste'=>'teste',
+        ];
+        $country = Country::find(1);
+          //dd($country->name);
+
+       $insertState =  $country->states()->create($dataForm);
+       var_dump($insertState->name);
+
+        //return  "salvou o novo estado";
+
+     //dd(states);
+    }
+
+    public function oneToManyInsertTwo()
+    {
+        // SIMULA DADOS QUE VEM DE UM FORM POR EXEMPLO ... 
+        //VAMOS GRAVAR DIRETO PELOS RELACIONAMENTOS SEM NECESSIDADE DE SQL E INSTRUÇÕES DIVERSAS
+        $dataForm = [
+        'name'=>'Amazonas',
+        'initials'=>'AM',
+        'country_id'=>'1',
+        ];
+        
+          //dd($country->name);
+        // aqui quando não precisamos buscar o páis antes e já temos todos os dados do form state
+       $insertState = State::create($dataForm);
+       var_dump($insertState->name);
+
+        //return  "salvou o novo estado";
+
+     //dd(states);
     }
 }
