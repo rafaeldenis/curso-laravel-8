@@ -3,6 +3,7 @@
 use App\Http\Controllers\Cliente;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ClienteTelefoneController;
+use App\Http\Controllers\ManyToManyController;
 use App\Http\Controllers\OneToManyController;
 use App\Http\Controllers\OneToOneController;
 use App\Http\Controllers\PostController;
@@ -115,9 +116,12 @@ Route::get('/one-to-many-insert-two',[OneToManyController::class,'oneToManyInser
 
 */
 Route::get('/has-many-through',[OneToManyController::class,'hasManyThrough']);
+
+Route::get('/many-to-many',[ManyToManyController::class,'manyToMany']);
+Route::get('/many-to-many-inverse',[ManyToManyController::class,'manyToManyInverse']);
+Route::get('/many-to-many-insert',[ManyToManyController::class,'manyToManyInsert']);
+
 /*
-
-
 
 * Many To many-- esse  relacionamento é de muitos estados apenas para um país o teste 
 Route::get('/one-to-many-insert',[OneToManyController::class,'oneToMany']);
