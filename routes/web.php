@@ -6,6 +6,7 @@ use App\Http\Controllers\ClienteTelefoneController;
 use App\Http\Controllers\ManyToManyController;
 use App\Http\Controllers\OneToManyController;
 use App\Http\Controllers\OneToOneController;
+use App\Http\Controllers\PolimorphicController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\CssSelector\Node\FunctionNode;
@@ -129,6 +130,19 @@ Route::get('/one-to-many-insert',[OneToManyController::class,'oneToMany']);
 Route::get('/many-to-one',[OneToManyController::class,'manyToOne']);
 Route::get('/clientes-telefones',[ClienteTelefoneController::class,'clientesTelefones']);
 
+
+/* Polymorphi -- 
+
+* Polymorphi--  Relacionamentos Polymorphic é um relacionamento mais complexo
+No nosso cenário vamos criar uma tabea auxiliar de comentários centralizada para guardar comentários
+tanto de cidades , estados e países . Com o relaciomento polymorphic d laravel centralizar a
+responsabilidade em uma única tabela e com o relacionamento Polymorphic já consegue relacionar para diversars 
+tabelas que possuem comentários entralizar apenas em uma tabela auxiliar.
+*/
+
+Route::get('/polymorphic',[PolimorphicController::class,'polymorphic']);
+Route::get('/polymorphic-insert',[PolimorphicController::class,'polymorphicInsert']);
+Route::get('/polymorphic-insert',[PolimorphicController::class,'polymorphicInsert']);
 
 
 

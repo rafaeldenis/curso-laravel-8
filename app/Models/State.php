@@ -22,4 +22,9 @@ class State extends Model
 
         return $this->hasMany(City::class);
     }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class,'commentable');
+    }
 }
