@@ -31,7 +31,7 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <a class="navbar-brand" href="{{ url('/admin/clientes') }}">
+                    <a class="navbar-brand" href="{{ url('/vendas/clientes') }}">
                         Clientes
                      </a>
 
