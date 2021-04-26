@@ -23,7 +23,7 @@ class PolimorphicController extends Controller
         $country = Country::where('name','Brasil')->get()->first();
 
         echo"$country->name <br>";
-        $comments = $country->comments()->get();
+        $comments = $state->comments()->get();
 
         foreach($comments as $comment)
         {
