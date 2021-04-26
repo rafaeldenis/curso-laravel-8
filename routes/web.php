@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CityController;
 use App\Http\Controllers\Cliente;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ClienteTelefoneController;
@@ -47,6 +48,7 @@ Route::group(['middleware' => ['auth']], function () {
                 Route::put('/clientes/{id}',[ClienteController::class,'update'])->name('clientes.update');
                 Route::get('/clientes/edit/{id}',[ClienteController::class,'edit'])->name('clientes.edit');*/
                 Route::resource('/posts',PostController::class);
+                Route::resource('/cidades',CityController::class);
                 //Route::resource('/clientes',ClienteController::class);
     });
 

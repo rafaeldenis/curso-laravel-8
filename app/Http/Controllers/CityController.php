@@ -106,9 +106,13 @@ class CityController extends Controller
     public function destroy($id)
     {
         //
+
+        //detach deleta só o item especifico da tabela pivot  detach
         $deletar = Company::find($id)->cities()->detach();
 
-        
+        return redirect()->route('cidades.index')->with('message','compania deletada da cidade');
+
+
         
     }
 }
