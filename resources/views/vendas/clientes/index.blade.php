@@ -26,6 +26,8 @@
             <tr>      
                 <th>Nome</th>                
                 <th>Apelido</th>                
+                <th>Email</th>                
+                <th>Telefone</th>                
                 <th>Opções</th>
             </tr>
             </thead>           
@@ -34,6 +36,8 @@
                 <tr>
                     <td>{{ $cliente->nome }}</td>
                     <td>{{ $cliente->apelido }}</td>
+                    <td>{{ $cliente->email }}</td>
+                    <td>{{ $cliente->telefone }}</td>
                    
           
                     <td>
