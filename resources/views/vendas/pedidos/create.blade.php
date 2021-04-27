@@ -5,10 +5,10 @@
     <a href="{{route('clientes.index')}}" class="btn botao-voltar" >
         <i class="fas fa-arrow-alt-circle-left"></i>
     </a>
-    <h3>Novo Cliente</h3>
+    <h3>Novo Pedido</h3>
  </div>
 <br>
-<form action="{{ route('clientes.store') }}" method="post">
+<form action="{{ route('pedidos.store') }}" method="post">
     @csrf
     @include('vendas.clientes._partials.form')
 </form>

@@ -11,6 +11,8 @@ class PedidoController extends Controller
     public function create()
     {
 
-        echo "LISTAR FORM PEDIDOS GRAVAR";
+        //echo "LISTAR FORM PEDIDOS GRAVAR";
+
+        return view('vendas.pedidos.create');
     }
 }

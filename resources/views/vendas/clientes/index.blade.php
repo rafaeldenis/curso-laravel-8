@@ -54,11 +54,11 @@
                     <td>
                         <div class='d-flex'>     
                             <a href="{{ route('clientes.show',$cliente->id) }}"
-                                class="btn" role="button" title="Detalhes" >
-                                <i class="fas fa-edit"></i>
+                                class="btn" role="button" title="Visualizar Pedidos" >
+                                <i class="fas fa-search"></i>
                             </a>
                             <a href="{{ route('clientes.edit',$cliente->id) }}"
-                                class="btn" role="button" title="Detalhes" >
+                                class="btn" role="button" title="Editar Clientes" >
                                 <i class="fas fa-edit"></i>
                             </a>
 
@@ -78,5 +78,16 @@
         </table>
     </div>
 
+@push('scripts')
+<script> 
+    if (window.jQuery) {
+    // jQuery is available.
+        alert('kkkkk');
+    // Print the jQuery version, e.g. "1.0.0":
+    console.log(window.jQuery.fn.jquery);
+}
 
+
+</script>
+@endpush
 

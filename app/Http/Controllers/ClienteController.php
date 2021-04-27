@@ -15,7 +15,7 @@ class ClienteController extends Controller
 
     public function index(){
 
-        $clientes = ModelsCliente::get();
+        $clientes = ModelsCliente::orderBy('nome')->get();
 
         //d($clientes);
 
