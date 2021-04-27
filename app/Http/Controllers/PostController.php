@@ -40,6 +40,7 @@ class PostController extends Controller
             return redirect()->route('posts.index');
         }       
 
+        dd($post);
       
        return view('admin.posts.show',compact('post'));
 

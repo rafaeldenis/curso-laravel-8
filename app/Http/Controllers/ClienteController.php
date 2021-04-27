@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ClienteRequest;
 use App\Models\Cliente as ModelsCliente;
 use App\Models\Models\Cliente;
+use App\Models\Pedido;
+use App\Models\Produto;
 use Illuminate\Http\Request;
 
 class ClienteController extends Controller
@@ -18,6 +20,36 @@ class ClienteController extends Controller
         //d($clientes);
 
        return view('vendas.clientes.index',compact('clientes'));
+    }
+
+    public function show($id)
+    { 
+        
+       
+        $pedidos = Pedido::where('cliente_id',$id)->where('pago','N')->get();
+        //dd($pedidos);
+        $total_quantidade = $pedidos->sum('quantidade');
+        $total_divida = $pedidos->sum('total');
+
+       
+       /* foreach($pedidos as $pedido)
+        {
+            echo " NOME PRODUTO {$pedido->produto->nome} PEDIDO  cliente id : $pedido->cliente_id  e PRODUTO $pedido->produto_id <br> <hr>";
+        }*/
+        //$produto = $p->produto;
+        //dd($produto);
+
+       // $produto = Produto::find($id);
+
+        //dd($produto);
+
+
+        //echo  "EXIBIR DETALHES DE PEDIDOS do CLIENTE:  $cliente->nome <br> <hr>";       
+
+
+        return view('vendas.clientes.show',compact('pedidos','total_quantidade','total_divida'));     
+
+        //dd($pedidos);
     }
 
     public function create(){

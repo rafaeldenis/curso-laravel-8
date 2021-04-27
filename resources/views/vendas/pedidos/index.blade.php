@@ -13,23 +13,12 @@
         <div class="col-md-1 col-sm-1 d-flex justify-content-end">
             <a href="{{ route('clientes.create') }}"
                 class="btn btn-primary btn-sm" role="button" title="Novo cadastro">
-                <i class="fas fa-user-plus">
-                    <span class="icon-label"><br>+Cliente</span>
-                </i>
-            </a>&nbsp;
-
-            <a href="{{ route('pedidos.create') }}"
-                class="btn btn-primary btn-sm" role="button" title="Novo cadastro">
-                <i class="fas fa-search-dollar">
-                    <span class="icon-label">+Pedido</span>
+                <i class="far fa-file-alt">
+                    <span class="icon-label"><br>Novo</span>
                 </i>
             </a>
         </div>
-
-        
     </div>
-
-    
      
       <div class="table-responsive">
         <table class="table table-striped">        
@@ -57,12 +46,10 @@
                                 class="btn" role="button" title="Detalhes" >
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <a href="{{ route('clientes.edit',$cliente->id) }}"
+                            <a href="{{ route('posts.edit',$cliente->id) }}"
                                 class="btn" role="button" title="Detalhes" >
                                 <i class="fas fa-edit"></i>
                             </a>
-
-                            
 
                          
 

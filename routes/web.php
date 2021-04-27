@@ -7,6 +7,7 @@ use App\Http\Controllers\ClienteTelefoneController;
 use App\Http\Controllers\ManyToManyController;
 use App\Http\Controllers\OneToManyController;
 use App\Http\Controllers\OneToOneController;
+use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\PolimorphicController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
@@ -75,6 +76,10 @@ Route::group(['middleware' => ['auth']], function () {
                 Route::get('/clientes/edit/{id}',[ClienteController::class,'edit'])->name('clientes.edit');*/
                 //Route::resource('/posts',PostController::class);
                 Route::resource('/clientes',ClienteController::class);
+
+                Route::get('/pedidos',[PedidoController::class,'index'])->name('pedidos.index'); 
+                Route::get('/pedidos/create',[PedidoController::class,'create'])->name('pedidos.create'); 
+                Route::post('/pedidos',[PedidoController::class,'store'])->name('pedidos.store'); 
     });
 
 

@@ -26,4 +26,10 @@ class Cliente extends Model
 
         return $this->hasMany(Telefone::class);
     }
+    
+    public function pedidos()
+    {
+
+        return $this->hasMany(Pedido::class);
+    }
 }

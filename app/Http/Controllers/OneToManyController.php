@@ -114,6 +114,7 @@ class OneToManyController extends Controller
         $stateName = "Xangai";
 
         $state = State::where('name',$stateName)->get()->first();
+        dd($state);
         $country = $state->country;
         //dd($country);
 
