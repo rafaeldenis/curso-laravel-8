@@ -8,7 +8,7 @@
      @endif
     <div class="row">
         <div class="col-md-11 col-sm-11 d-flex align-items-center">
-            <h3>Lista de Pedidos</h3>
+            <h3>Lista de Produtos</h3>
         </div>
         <div class="col-md-1 col-sm-1 d-flex justify-content-end">
             <a href="{{ route('pedidos.create') }}"
@@ -25,26 +25,23 @@
             <thead>
             <tr>      
                 <th>Codigo</th>                
-                <th>Produto ID</th>                
-                <th>CLIENTE ID</th>                
-                <th>Quantidade</th>                
+                <th>Nome</th>                
+                 
                   
                 <th>Opções</th>
             </tr>
             </thead>           
             <tbody>
-                    @forelse($pedidos as $pedido)
+                    @forelse($produtos as $produto)
                 <tr>
-                    <td>{{ $pedido->id }}</td>
-                    <td>{{ $pedido->produto_id }}</td>
-                    <td>{{ $pedido->cliente_id }} - {{ $pedido->cliente->nome}} </td>
-                    <td>{{ $pedido->quantidade }}</td>
-                   
+                    <td>{{ $produto->id }}</td>
+                    <td>{{ $produto->nome }}</td>
+                  
                    
           
                     <td>
                         <div class='d-flex'>     
-                            <a href="{{ route('clientes.show',$pedido->id) }}"
+                            <a href="{{ route('produtos.edit',$produto->id) }}"
                                 class="btn" role="button" title="Detalhes" >
                                 <i class="fas fa-edit"></i>
                             </a>

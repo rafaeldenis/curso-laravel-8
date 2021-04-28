@@ -10,6 +10,7 @@ use App\Http\Controllers\OneToOneController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\PolimorphicController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProdutoController;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\CssSelector\Node\FunctionNode;
 
@@ -76,6 +77,7 @@ Route::group(['middleware' => ['auth']], function () {
                 Route::get('/clientes/edit/{id}',[ClienteController::class,'edit'])->name('clientes.edit');*/
                 //Route::resource('/posts',PostController::class);
                 Route::resource('/clientes',ClienteController::class);
+                Route::resource('/produtos',ProdutoController::class);
 
                 Route::get('/pedidos',[PedidoController::class,'index'])->name('pedidos.index'); 
                 Route::get('/pedidos/create',[PedidoController::class,'create'])->name('pedidos.create'); 
