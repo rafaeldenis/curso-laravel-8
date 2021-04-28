@@ -2,7 +2,7 @@
 @section('title','DETALHES')
 @section('content')
 <div class="alert alert-success col-md-11 col-sm-11 d-flex align-items-center">
-    <h3>Total de Produtos : {{ $total_quantidade }} <br> <hr>Total Dívida Ativa : R$ :  {{ $total_divida }} </h3>
+    <h3>CLIENTE / APELIDO :  {{ $pedidos[0]->cliente->nome ?? ''}} <br> <hr> Total de Produtos : {{ $total_quantidade }} / Total Dívida Ativa : R$ :  {{ $total_divida }} </h3>
 </div>
         @foreach($pedidos as $pedido)
 

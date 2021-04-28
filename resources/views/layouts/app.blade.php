@@ -35,6 +35,14 @@
                         Clientes
                      </a>
 
+                     <a class="navbar-brand" href="{{ url('/vendas/produtos') }}">
+                        Produtos
+                     </a>
+
+                     <a class="navbar-brand" href="{{ url('/vendas/pedidos') }}">
+                        Pedidos
+                     </a>
+
                      <a class="navbar-brand" href="{{ url('/admin/posts') }}">
                         Posts
                      </a>
