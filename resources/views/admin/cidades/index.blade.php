@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 @section('title','LISTAGEM DAS CIDADES')
 @section('content')
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>    
      @if (session('message'))
      <div class="alert alert-success" role="alert">
             {{ session('message') }}
@@ -73,6 +73,26 @@
         </table>
     </div>
 
+    <table id="minhaTabela" name="minhaTabela" class="table-responsive">
+        <thead>
+            <tr>
+                <td>#</td>
+                <td>Nome</td>
+                <td>apelido</td>
+                <td>apelido</td>
+                <td>apelido</td>
+                
+              
+            </tr>
+        </thead>
+        <tbody>
+       
+           
+        </tbody>
+        </table>
+
+        <table border="0" cellpadding="0" width="100%" id='providersFormElementsTable'>1 </table>
+
      
 
       <hr>
@@ -82,6 +102,98 @@
       @else
             {{ $cidades->links() }}
       @endif
+      <script>
+
+      // EXEMPLO BUSCA EM UM CONTROLLER E RETORNA $JSON PARA TRABALHAR NO $JQUERY
+       $(document).ready(function(){
+          
+       /* $linha = "<tr>"+
+        "<td>Nickname</td>"+
+        "<td>Nickname</td>"+
+        "<td>Nickname</td>"+
+        "<td>Nickname</td>"+
+        "<td>Nickname</td>"+
+      
+        "</td></tr>" ;
+        $("#minhaTabela > tbody").append($linha);*/
+
+                $.ajax({
+        'processing': true, 
+        'serverSide': true,
+          type: "GET",
+          // passar parametro caso o serviço ou conttrole  precise para consulta 
+          //data: {item_categoria: $("#item_categoria").val()},
+          url: "/admin/get-cidades-json",
+          datatype: "json",
+          success: function(retornos) {
+            //id  =  retorno[0].id ;
+            //name  =  retorno[0].name ;
+
+           // alert(id);
+           //alert(name);
+            //foreach com $jquery com o metodo $.eacck que percoorerr todo arrary de objeto json 
+            $.each(retornos,function(c,retorno){
+              
+                teste = retorno.name;
+                //alert(teste);
+
+                   
+            
+            });
+
+          
+
+            if(retornos[0].erro){
+			    $("h2").html(retornos[0].erro);
+		    }
+		    else{
+			    //Laço para criar linhas da tabela
+                //alert("alert aquiii");
+			    for(var i = 0; i<retornos.length; i++){
+                    teste = retornos[i].id;
+                    teste1 = retornos[i].name;
+                    //alert(teste);
+                    //alert(teste1);
+
+                    
+				    $linha = "<tr>"+
+                            "<td>"+retornos[i].id +"</td>"+
+                            "<td>"+retornos[i].name +"</td>"+
+                            "<td>"+retornos[i].name +"</td>"+
+                            "<td>"+retornos[i].name +"</td>"+
+                            "<td>"+retornos[i].name +"</td>"+
+                        
+                            "</td></tr>" ;
+                            $("#minhaTabela > tbody").append($linha);
+
+                  //$('#minhaTabela > tbody').append(itens);
+                  
+
+                  
+
+                    //alert(itens);*/
+			    }
+
+                //alert(itens);
+			    //Preencher a Tabela
+			    //$("#minhaTabela ").append(itens);
+
+                $("#minhaTabela>tbody").append(itens);
+                $("#minhaTabela>tbody").html(itens);
+			    
+			    //Limpar Status de Carregando
+			    //$("h2").html("Carregado");
+		    }
+
+            
+
+            
+         
+          }
+
+      });
+            });
+</script>
      
  
 

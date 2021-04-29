@@ -115,4 +115,21 @@ class CityController extends Controller
 
         
     }
+
+    public function getCidades()
+    {
+        //
+
+        //echo("LISTAR CIDADESSSSS");
+
+        //$cidades = City::paginate();
+        $cidades = City::all();
+
+        //dd($posts);
+
+        //$json = json_enconde($cidades); // transforma em json
+        return response()->json($cidades); // retorna uma resposta com o json
+
+       //return view('admin.cidades.index',compact('cidades'));
+    }
 }

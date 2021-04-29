@@ -51,6 +51,7 @@ Route::group(['middleware' => ['auth']], function () {
                 Route::get('/clientes/edit/{id}',[ClienteController::class,'edit'])->name('clientes.edit');*/
                 Route::resource('/posts',PostController::class);
                 Route::resource('/cidades',CityController::class);
+                Route::get('/get-cidades-json',[CityController::class,'getCidades']); 
                 //Route::resource('/clientes',ClienteController::class);
     });
 
