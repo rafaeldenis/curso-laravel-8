@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PedidoRequest;
 use App\Models\Cliente;
 use App\Models\Pedido;
 use App\Models\Produto;
@@ -33,7 +34,7 @@ class PedidoController extends Controller
         return view('vendas.pedidos.create',compact('clientes','produtos'));
     }
 
-    public function store(Request $request)
+    public function store(PedidoRequest $request)
     {
         
         $dados = $request->all();
