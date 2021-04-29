@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\cidade;
 use App\Models\City;
 use App\Models\Company;
 use App\Models\Post;
@@ -16,10 +17,7 @@ class CityController extends Controller
      */
     public function index()
     {
-        //
-
-        //echo("LISTAR CIDADESSSSS");
-
+      
         $cidades = City::paginate();
 
         //dd($posts);
@@ -121,7 +119,9 @@ class CityController extends Controller
         //
 
         //echo("LISTAR CIDADESSSSS");
-
+        //$cidades = City::paginate(15);
+        //dd($cidades);
+        //return cidade::collection($cidades);
         //$cidades = City::paginate();
         $cidades = City::all();
 
