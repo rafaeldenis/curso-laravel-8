@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AutoCompleteController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\Cliente;
 use App\Http\Controllers\ClienteController;
@@ -78,8 +79,9 @@ Route::group(['middleware' => ['auth']], function () {
                 Route::get('/clientes/edit/{id}',[ClienteController::class,'edit'])->name('clientes.edit');*/
                 //Route::resource('/posts',PostController::class);
                 Route::resource('/clientes',ClienteController::class);
+                
                 Route::resource('/produtos',ProdutoController::class);
-
+                
                 Route::get('/pedidos',[PedidoController::class,'index'])->name('pedidos.index'); 
                 Route::get('/pedidos/create',[PedidoController::class,'create'])->name('pedidos.create'); 
                 Route::post('/pedidos',[PedidoController::class,'store'])->name('pedidos.store'); 
@@ -154,7 +156,8 @@ Route::get('/polymorphic',[PolimorphicController::class,'polymorphic']);
 Route::get('/polymorphic-insert',[PolimorphicController::class,'polymorphicInsert']);
 Route::get('/polymorphic-insert',[PolimorphicController::class,'polymorphicInsert']);
 
-
+Route::get('/autocomplete',[AutoCompleteController::class,'index']);
+Route::post('/autocomplete/getAutoComplete/',[AutoCompleteController::class,'getAutoComplete'])->name('AutoComplete.getAutoComplete');
 
 Route::get('/login',function(){
     return 'login';

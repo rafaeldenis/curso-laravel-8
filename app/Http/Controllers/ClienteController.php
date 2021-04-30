@@ -106,4 +106,26 @@ class ClienteController extends Controller
 
 
     }
+
+    public function getAutoComplete(Request $request){
+        echo "aquiii";
+        //$search = $request->search;
+        $search = 'rafael';
+
+        dd($search);
+  
+        if($search == ''){
+           $autocomplate = ModelsCliente::orderby('nome','asc')->select('id','nome')->limit(5)->get();
+        }else{
+           $autocomplate = ModelsCliente::orderby('name','asc')->select('id','nome')->where('nome', 'like', '%' .$search . '%')->limit(5)->get();
+        }
+  
+        $response = array();
+        foreach($autocomplate as $autocomplate){
+           $response[] = array("value"=>$autocomplate->id,"label"=>$autocomplate->nome);
+        }
+  
+        echo json_encode($response);
+        exit;
+     }
 }
