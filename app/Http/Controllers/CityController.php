@@ -114,16 +114,20 @@ class CityController extends Controller
         
     }
 
-    public function getCidades()
+    public function getCidades(Request $request)
     {
         //
+
+      
+
+        //return ['status'=>true];
 
         //echo("LISTAR CIDADESSSSS");
         //$cidades = City::paginate(15);
         //dd($cidades);
         //return cidade::collection($cidades);
-        //$cidades = City::paginate();
         $cidades = City::all();
+      
 
         //dd($posts);
 

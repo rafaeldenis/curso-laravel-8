@@ -76,11 +76,9 @@
     <table id="minhaTabela" name="minhaTabela" class="table-responsive">
         <thead>
             <tr>
-                <td>#</td>
-                <td>Nome</td>
-                <td>apelido</td>
-                <td>apelido</td>
-                <td>apelido</td>
+                <td>ID</td>
+                <td>Cidade</td>
+              
                 
               
             </tr>
@@ -116,17 +114,17 @@
       
         "</td></tr>" ;
         $("#minhaTabela > tbody").append($linha);*/
-
+       
                 $.ajax({
         'processing': true, 
         'serverSide': true,
           type: "GET",
           // passar parametro caso o serviço ou conttrole  precise para consulta 
-          //data: {item_categoria: $("#item_categoria").val()},
-          url: "/admin/get-cidades-json",
-         
+        
+          url: "/admin/get-cidades-json",         
           datatype: "json",
           success: function(retornos) {
+
             //id  =  retorno[0].id ;
             //name  =  retorno[0].name ;
 
@@ -137,6 +135,14 @@
               
                 teste = retorno.name;
                 //alert(teste);
+
+                $linha = "<tr>"+
+                            "<td>"+retorno.id +"</td>"+
+                            "<td>"+retorno.name +"</td>"+
+                           
+                        
+                            "</td></tr>" ;
+                            $("#minhaTabela > tbody").append($linha);
 
                    
             
@@ -160,9 +166,7 @@
 				    $linha = "<tr>"+
                             "<td>"+retornos[i].id +"</td>"+
                             "<td>"+retornos[i].name +"</td>"+
-                            "<td>"+retornos[i].name +"</td>"+
-                            "<td>"+retornos[i].name +"</td>"+
-                            "<td>"+retornos[i].name +"</td>"+
+                           
                         
                             "</td></tr>" ;
                             $("#minhaTabela > tbody").append($linha);
