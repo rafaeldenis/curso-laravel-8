@@ -124,6 +124,7 @@
           // passar parametro caso o serviço ou conttrole  precise para consulta 
           //data: {item_categoria: $("#item_categoria").val()},
           url: "/admin/get-cidades-json",
+         
           datatype: "json",
           success: function(retornos) {
             //id  =  retorno[0].id ;

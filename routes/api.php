@@ -20,4 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::get('cidades', [CityController::class, 'index']);
+Route::get('/json',function(){
+    return ['status'=>true];
+
+})->name('json');
