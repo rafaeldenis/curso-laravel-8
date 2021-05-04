@@ -25,7 +25,7 @@ class AutoCompleteController extends Controller
            $autocomplate = Cliente::orderby('nome','asc')->select('id','nome')->limit(5)->get();
         }else{
            $autocomplate = Cliente::orderby('nome','desc')->select('id','nome')->where('nome', 'like', '%' .$search . '%')
-           ->orWhere('id',$search)->limit(5)->get();
+           ->orWhere('apelido', 'like', '%' .$search . '%')->orWhere('id',$search)->limit(5)->get();
         }
 
         //dd($autocomplate);
